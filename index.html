@@ -1,0 +1,908 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>趣味数学6</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 700px;
+            margin: 0 auto;
+            padding: 15px;
+            background-color: #f9f9f9;
+        }
+        h1 {
+            color: #2c3e50;
+            text-align: center;
+            margin-bottom: 25px;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 8px;
+            font-size: 1.8em;
+        }
+        h2 {
+            color: #2980b9;
+            margin-top: 25px;
+            border-left: 4px solid #3498db;
+            padding-left: 8px;
+            font-size: 1.4em;
+        }
+        h3 {
+            color: #16a085;
+            margin-top: 18px;
+            font-size: 1.2em;
+        }
+        .section {
+            background-color: white;
+            border-radius: 6px;
+            padding: 15px;
+            margin-bottom: 25px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+        .question {
+            font-weight: bold;
+            color: #e74c3c;
+            margin-top: 12px;
+            font-size: 0.95em;
+        }
+        .answer {
+            color: #27ae60;
+            margin-bottom: 12px;
+            padding-left: 15px;
+            border-left: 2px solid #2ecc71;
+            font-size: 0.95em;
+        }
+        .rule {
+            background-color: #f1f9fe;
+            padding: 8px 12px;
+            border-radius: 4px;
+            margin: 8px 0;
+            border-left: 3px solid #3498db;
+            font-size: 0.95em;
+        }
+        .example {
+            background-color: #f8f9fa;
+            padding: 8px;
+            border-radius: 4px;
+            margin: 8px 0;
+        }
+        
+        /* 年龄差动画 */
+        .age-difference-animation {
+            width: 100%;
+            height: 150px;
+            position: relative;
+            margin: 15px auto;
+            background-color: #f5f5f5;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        
+        .person {
+            width: 40px;
+            height: 80px;
+            position: absolute;
+            bottom: 20px;
+        }
+        
+        .person-1 {
+            left: 30%;
+            background-color: #3498db;
+            animation: grow1 4s infinite;
+        }
+        
+        .person-2 {
+            left: 60%;
+            background-color: #e74c3c;
+            animation: grow2 4s infinite;
+        }
+        
+        .age-label {
+            position: absolute;
+            top: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-weight: bold;
+        }
+        
+        @keyframes grow1 {
+            0%, 100% { height: 80px; }
+            50% { height: 100px; }
+        }
+        
+        @keyframes grow2 {
+            0%, 100% { height: 50px; }
+            50% { height: 70px; }
+        }
+        
+        /* 年龄和动画 */
+        .age-sum-animation {
+            width: 100%;
+            height: 150px;
+            position: relative;
+            margin: 15px auto;
+            background-color: #f5f5f5;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        
+        .family {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            position: absolute;
+            bottom: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-weight: bold;
+            color: white;
+        }
+        
+        .father {
+            left: 20%;
+            background-color: #2c3e50;
+            animation: move1 4s infinite;
+        }
+        
+        .mother {
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: #9b59b6;
+            animation: move2 4s infinite;
+        }
+        
+        .child {
+            left: 80%;
+            background-color: #2ecc71;
+            animation: move3 4s infinite;
+        }
+        
+        @keyframes move1 {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+        
+        @keyframes move2 {
+            0%, 100% { transform: translate(-50%, 0); }
+            50% { transform: translate(-50%, -10px); }
+        }
+        
+        @keyframes move3 {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+        
+        /* 组合问题动画 */
+        .combination-animation {
+            width: 100%;
+            height: 150px;
+            position: relative;
+            margin: 15px auto;
+            background-color: #f5f5f5;
+            border-radius: 8px;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .item {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            margin: 0 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-weight: bold;
+            color: white;
+            animation: pulse 2s infinite;
+        }
+        
+        .item-1 { background-color: #3498db; animation-delay: 0s; }
+        .item-2 { background-color: #e74c3c; animation-delay: 0.2s; }
+        .item-3 { background-color: #2ecc71; animation-delay: 0.4s; }
+        .item-4 { background-color: #f39c12; animation-delay: 0.6s; }
+        
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.2); }
+        }
+        
+        /* 天平等式动画 */
+        .balance-equation-animation {
+            width: 100%;
+            height: 150px;
+            position: relative;
+            margin: 15px auto;
+            background-color: #f5f5f5;
+            border-radius: 8px;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .balance-scale {
+            width: 150px;
+            height: 80px;
+            position: relative;
+        }
+        
+        .balance-stand {
+            width: 6px;
+            height: 60px;
+            background-color: #555;
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        .balance-beam {
+            width: 120px;
+            height: 4px;
+            background-color: #777;
+            position: absolute;
+            bottom: 60px;
+            left: 50%;
+            transform: translateX(-50%);
+            animation: balance 3s infinite ease-in-out;
+        }
+        
+        .balance-pan {
+            width: 30px;
+            height: 8px;
+            background-color: #888;
+            position: absolute;
+            bottom: 55px;
+        }
+        
+        .left-pan { left: calc(50% - 60px); }
+        .right-pan { right: calc(50% - 60px); }
+        
+        .symbol {
+            position: absolute;
+            bottom: 30px;
+            font-weight: bold;
+            font-size: 20px;
+        }
+        
+        .left-symbol { left: calc(50% - 50px); }
+        .right-symbol { right: calc(50% - 50px); }
+        
+        @keyframes balance {
+            0%, 100% { transform: translateX(-50%) rotate(0deg); }
+            50% { transform: translateX(-50%) rotate(-2deg); }
+        }
+        
+        /* 扫雷游戏动画 */
+        .minesweeper-animation {
+            width: 100%;
+            height: 150px;
+            position: relative;
+            margin: 15px auto;
+            background-color: #f5f5f5;
+            border-radius: 8px;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(5, 30px);
+            grid-template-rows: repeat(5, 30px);
+            gap: 2px;
+        }
+        
+        .cell {
+            width: 30px;
+            height: 30px;
+            background-color: #ddd;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-weight: bold;
+            position: relative;
+        }
+        
+        .number {
+            animation: appear 3s infinite;
+        }
+        
+        .mine {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background-color: #e74c3c;
+            border-radius: 50%;
+            opacity: 0;
+            animation: mineAppear 3s infinite;
+        }
+        
+        @keyframes appear {
+            0%, 60% { opacity: 0; transform: scale(0.5); }
+            100% { opacity: 1; transform: scale(1); }
+        }
+        
+        @keyframes mineAppear {
+            0%, 70% { opacity: 0; transform: scale(0.3); }
+            100% { opacity: 1; transform: scale(1); }
+        }
+        
+        /* 数列规律动画 */
+        .sequence-animation {
+            width: 100%;
+            height: 150px;
+            position: relative;
+            margin: 15px auto;
+            background-color: #f5f5f5;
+            border-radius: 8px;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .number-ball {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: #3498db;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-weight: bold;
+            color: white;
+            margin: 0 5px;
+            animation: sequence 4s infinite;
+        }
+        
+        .number-ball:nth-child(1) { animation-delay: 0s; }
+        .number-ball:nth-child(2) { animation-delay: 0.2s; }
+        .number-ball:nth-child(3) { animation-delay: 0.4s; }
+        .number-ball:nth-child(4) { animation-delay: 0.6s; }
+        .number-ball:nth-child(5) { animation-delay: 0.8s; }
+        .number-ball:nth-child(6) { animation-delay: 1s; }
+        
+        @keyframes sequence {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-15px); }
+        }
+        
+        /* 一笔画动画 */
+        .one-stroke-animation {
+            width: 100%;
+            height: 150px;
+            position: relative;
+            margin: 15px auto;
+            background-color: #f5f5f5;
+            border-radius: 8px;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .graph {
+            position: relative;
+            width: 120px;
+            height: 120px;
+        }
+        
+        .vertex {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background-color: #e74c3c;
+            position: absolute;
+        }
+        
+        .vertex-1 { top: 0; left: 50%; transform: translateX(-50%); }
+        .vertex-2 { top: 50%; left: 0; transform: translateY(-50%); }
+        .vertex-3 { top: 50%; right: 0; transform: translateY(-50%); }
+        .vertex-4 { bottom: 0; left: 50%; transform: translateX(-50%); }
+        
+        .edge {
+            position: absolute;
+            background-color: #3498db;
+        }
+        
+        .edge-1 {
+            width: 2px;
+            height: 50px;
+            top: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            animation: draw1 3s infinite;
+        }
+        
+        .edge-2 {
+            width: 50px;
+            height: 2px;
+            top: 50%;
+            left: 10px;
+            transform: translateY(-50%);
+            animation: draw2 3s infinite;
+        }
+        
+        .edge-3 {
+            width: 50px;
+            height: 2px;
+            top: 50%;
+            right: 10px;
+            transform: translateY(-50%);
+            animation: draw3 3s infinite;
+        }
+        
+        .edge-4 {
+            width: 2px;
+            height: 50px;
+            bottom: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            animation: draw4 3s infinite;
+        }
+        
+        @keyframes draw1 {
+            0% { height: 0; top: 20px; }
+            100% { height: 50px; top: 10px; }
+        }
+        
+        @keyframes draw2 {
+            0%, 25% { width: 0; left: 20px; }
+            100% { width: 50px; left: 10px; }
+        }
+        
+        @keyframes draw3 {
+            0%, 50% { width: 0; right: 20px; }
+            100% { width: 50px; right: 10px; }
+        }
+        
+        @keyframes draw4 {
+            0%, 75% { height: 0; bottom: 20px; }
+            100% { height: 50px; bottom: 10px; }
+        }
+		/* 路径计数动画 */
+        .path-counting-animation {
+            width: 100%;
+            height: 200px;
+            position: relative;
+            margin: 15px auto;
+            background-color: white;
+            border-radius: 8px;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(3, 40px);
+            grid-template-rows: repeat(3, 40px);
+            gap: 5px;
+        }
+        
+        .cell {
+            width: 40px;
+            height: 40px;
+            background-color: #ecf0f1;
+            border-radius: 4px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-weight: bold;
+            position: relative;
+        }
+        
+        .start { background-color: #2ecc71; color: white; }
+        .end { background-color: #e74c3c; color: white; }
+        
+        .path {
+            position: absolute;
+            background-color: #3498db;
+            z-index: 2;
+        }
+        
+        .horizontal-path {
+            height: 4px;
+            width: 45px;
+            top: 50%;
+            left: 0;
+            transform: translateY(-50%);
+        }
+        
+        .vertical-path {
+            width: 4px;
+            height: 45px;
+            left: 50%;
+            top: 0;
+            transform: translateX(-50%);
+        }
+        
+        .path-1 {
+            animation: drawPath1 2s forwards;
+        }
+        
+        .path-2 {
+            animation: drawPath2 2s 2s forwards;
+        }
+        
+        .path-3 {
+            animation: drawPath3 2s 4s forwards;
+        }
+        
+        .path-4 {
+            animation: drawPath4 2s 6s forwards;
+        }
+        
+        @keyframes drawPath1 {
+            0% { width: 0; }
+            100% { width: 45px; }
+        }
+        
+        @keyframes drawPath2 {
+            0% { height: 0; }
+            100% { height: 45px; }
+        }
+        
+        @keyframes drawPath3 {
+            0% { width: 0; }
+            100% { width: 45px; }
+        }
+        
+        @keyframes drawPath4 {
+            0% { height: 0; }
+            100% { height: 45px; }
+        }
+        
+    </style>
+</head>
+<body>
+    <h1>趣味数学6</h1>
+    
+    <div class="section">
+        <h2>年龄问题初步</h2>
+        
+        <h3>1. 年龄差不变</h3>
+        <div class="age-difference-animation">
+            <div class="person person-1">
+                <div class="age-label">爸爸</div>
+            </div>
+            <div class="person person-2">
+                <div class="age-label">乐乐</div>
+            </div>
+        </div>
+        
+        <div class="rule">
+            <strong>运算法则：</strong><br>
+            两人年龄差恒定不变。
+        </div>
+        
+        <div class="example">
+            <div class="question">爸爸比乐乐大32岁，5年后年龄差是多少？</div>
+            <div class="answer">32岁。</div>
+            
+            <div class="question">妈妈比姐姐大25岁，10年后年龄差？</div>
+            <div class="answer">25岁。</div>
+            
+            <div class="question">哥哥比弟弟大3岁，20年后年龄差？</div>
+            <div class="answer">3岁。</div>
+        </div>
+        
+        <h3>2. 年龄和变化</h3>
+        <div class="age-sum-animation">
+            <div class="family father">爸</div>
+            <div class="family mother">妈</div>
+            <div class="family child">乐</div>
+        </div>
+        
+        <div class="rule">
+            <strong>运算法则：</strong><br>
+            年龄和随时间均匀增加。
+        </div>
+        
+        <div class="example">
+            <div class="question">今年乐乐3岁，妈妈30岁，7年后年龄和多少？</div>
+            <div class="answer">47岁。</div>
+            
+            <div class="question">爸爸40岁，儿子10岁，5年后年龄和？</div>
+            <div class="answer">55岁。</div>
+            
+            <div class="question">妈妈35岁，女儿5岁，10年后年龄和？</div>
+            <div class="answer">50岁。</div>
+        </div>
+    </div>
+    
+    <div class="section">
+        <h2>有趣的搭配</h2>
+        
+        <h3>1. 组合问题</h3>
+        <div class="combination-animation">
+            <div class="item item-1">A</div>
+            <div class="item item-2">B</div>
+            <div class="item item-3">C</div>
+            <div class="item item-4">D</div>
+        </div>
+        
+        <div class="rule">
+            <strong>运算法则：</strong><br>
+            总组合数 = 选择数相乘。
+        </div>
+        
+        <div class="example">
+            <div class="question">3家中餐厅和2家西餐厅，共几种选择？</div>
+            <div class="answer">5种。</div>
+            
+            <div class="question">4种饮料和3种小吃，共几种搭配？</div>
+            <div class="answer">12种。</div>
+            
+            <div class="question">5种帽子和2种鞋子，共几种搭配？</div>
+            <div class="answer">10种。</div>
+        </div>
+        
+        <h3>2. 路径计数</h3>
+		<div class="path-counting-animation">
+            <div class="grid">
+                <div class="cell start">S</div>
+                <div class="cell"></div>
+                <div class="cell"></div>
+                <div class="cell"></div>
+                <div class="cell"></div>
+                <div class="cell"></div>
+                <div class="cell"></div>
+                <div class="cell"></div>
+                <div class="cell end">E</div>
+                
+                <div class="path horizontal-path path-1" style="top: 20px; left: 20px;"></div>
+                <div class="path vertical-path path-2" style="top: 20px; left: 65px;"></div>
+                <div class="path horizontal-path path-3" style="top: 65px; left: 65px;"></div>
+                <div class="path vertical-path path-4" style="top: 65px; left: 110px;"></div>
+            </div>
+        </div>
+        
+        <div class="rule">
+            <strong>运算法则：</strong><br>
+            1. 不同路径数=从起点到终点的所有可能走法总和<br>
+            2. 只能向右或向下移动<br>
+            3. 使用排列组合计算路径总数
+        </div>
+        
+         <div class="example">
+            <div class="question">从S到E有多少条不同的最短路径？</div>
+            <div class="answer">6条（需要向右2次，向下2次，共4步中选择2步向右）。</div>
+            
+            <div class="question">3×3网格中从左上到右下的最短路径有多少条？</div>
+            <div class="answer">6条（需要向右2次，向下2次）。</div>
+            
+            <div class="question">如果某些格子不能通过，如何计算路径数？</div>
+            <div class="answer">排除经过障碍格子的路径，使用动态规划方法计算。</div>
+        </div>
+    </div>
+    
+    <div class="section">
+        <h2>等式加减法</h2>
+        
+        <h3>1. 天平等式</h3>
+        <div class="balance-equation-animation">
+            <div class="balance-scale">
+                <div class="balance-stand"></div>
+                <div class="balance-beam"></div>
+                <div class="balance-pan left-pan"></div>
+                <div class="balance-pan right-pan"></div>
+                <div class="symbol left-symbol">2∆</div>
+                <div class="symbol right-symbol">3〇</div>
+            </div>
+        </div>
+        
+        <div class="rule">
+            <strong>运算法则：</strong><br>
+            天平两边重量相等，列等式求未知数。
+        </div>
+        
+        <div class="example">
+            <div class="question">已知：2∆ + 〇 = 2☆ + 2囗囗，求∆。</div>
+            <div class="answer">根据题意计算。</div>
+            
+            <div class="question">天平一边为3☆ + 2囗囗，另一边为5∆，两边相等，求☆。</div>
+            <div class="answer">根据题意计算。</div>
+            
+            <div class="question">4囗囗 + 2〇 = 6∆，求囗囗。</div>
+            <div class="answer">根据题意计算。</div>
+        </div>
+        
+        <h3>2. 变量求解</h3>
+        <div class="rule">
+            <strong>运算法则：</strong><br>
+            通过加减消元法求解多元方程。
+        </div>
+        
+        <div class="example">
+            <div class="question">∆ + 囗囗 = 10，∆ - 囗囗 = 2，求∆和囗囗。</div>
+            <div class="answer">∆=6，囗囗=4。</div>
+            
+            <div class="question">x + y = 15，x - y = 5，求x和y。</div>
+            <div class="answer">x=10，y=5。</div>
+            
+            <div class="question">a + b = 20，a - b = 4，求a和b。</div>
+            <div class="answer">a=12，b=8。</div>
+        </div>
+    </div>
+    
+    <div class="section">
+        <h2>扫雷游戏</h2>
+        
+        <h3>1. 地雷分布推理</h3>
+        <div class="minesweeper-animation">
+            <div class="grid">
+                <div class="cell"><div class="number">1</div><div class="mine"></div></div>
+                <div class="cell"><div class="number">2</div></div>
+                <div class="cell"><div class="number">1</div></div>
+                <div class="cell"><div class="number">0</div></div>
+                <div class="cell"><div class="number">1</div></div>
+                
+                <div class="cell"><div class="number">☆</div></div>
+                <div class="cell"><div class="number">2</div></div>
+                <div class="cell"><div class="number">1</div></div>
+                <div class="cell"><div class="number">1</div></div>
+                <div class="cell"><div class="number">1</div></div>
+                
+                <div class="cell"><div class="number">1</div></div>
+                <div class="cell"><div class="number">1</div></div>
+                <div class="cell"><div class="number">0</div></div>
+                <div class="cell"><div class="number">0</div></div>
+                <div class="cell"><div class="number">0</div></div>
+                
+                <div class="cell"><div class="number">1</div></div>
+                <div class="cell"><div class="number">☆</div></div>
+                <div class="cell"><div class="number">0</div></div>
+                <div class="cell"><div class="number">0</div></div>
+                <div class="cell"><div class="number">0</div></div>
+                
+                <div class="cell"><div class="number">1</div></div>
+                <div class="cell"><div class="number">1</div></div>
+                <div class="cell"><div class="number">0</div></div>
+                <div class="cell"><div class="number">0</div></div>
+                <div class="cell"><div class="number">0</div></div>
+            </div>
+        </div>
+        
+        <div class="rule">
+            <strong>运算法则：</strong><br>
+            数字表示周围雷的数量，用逻辑推断雷的位置。
+        </div>
+        
+        <div class="example">
+            <div class="question">"☆"代表2，表示周围有几颗雷？</div>
+            <div class="answer">2颗雷。</div>
+            
+            <div class="question">一个数字为3的格子，周围雷数是多少？</div>
+            <div class="answer">3颗雷。</div>
+            
+            <div class="question">某格子显示1，周围雷数为？</div>
+            <div class="answer">1颗雷。</div>
+        </div>
+        
+        <h3>2. 排除法</h3>
+        <div class="rule">
+            <strong>运算法则：</strong><br>
+            根据数字和已知雷位置，排除无雷格子。
+        </div>
+        
+        <div class="example">
+            <div class="question">格子周围雷数为1，已知某格有雷，其他格是否有雷？</div>
+            <div class="answer">无。</div>
+            
+            <div class="question">周围雷数为0，周围所有格子有无雷？</div>
+            <div class="answer">无。</div>
+            
+            <div class="question">数字为2的格子周围两个雷确定位置。</div>
+            <div class="answer">根据推理确定。</div>
+        </div>
+    </div>
+    
+    <div class="section">
+        <h2>数列规律</h2>
+        
+        <h3>1. 常见数列</h3>
+        <div class="sequence-animation">
+            <div class="number-ball">1</div>
+            <div class="number-ball">3</div>
+            <div class="number-ball">5</div>
+            <div class="number-ball">7</div>
+            <div class="number-ball">9</div>
+            <div class="number-ball">11</div>
+        </div>
+        
+        <div class="rule">
+            <strong>运算法则：</strong><br>
+            识别奇数列、斐波那契数列等。
+        </div>
+        
+        <div class="example">
+            <div class="question">完成奇数列：1,3,5,7,9,11,( )。</div>
+            <div class="answer">13。</div>
+            
+            <div class="question">斐波那契数列前7项为1,1,2,3,5,8,( )。</div>
+            <div class="answer">13。</div>
+            
+            <div class="question">99, 88, 11, 77, 66, ( ), 55，填空数字？</div>
+            <div class="answer">11。</div>
+        </div>
+        
+        <h3>2. 复杂规律</h3>
+        <div class="rule">
+            <strong>运算法则：</strong><br>
+            识别隔项重复、递增递减规律。
+        </div>
+        
+        <div class="example">
+            <div class="question">数列：2,4,6,8,10,( )，填空？</div>
+            <div class="answer">12。</div>
+            
+            <div class="question">数列：5,10,15,20,( )，填空？</div>
+            <div class="answer">25。</div>
+            
+            <div class="question">数列：1,2,4,7,11,( )，填空？</div>
+            <div class="answer">16。</div>
+        </div>
+    </div>
+    
+    <div class="section">
+        <h2>一笔画</h2>
+        
+        <h3>1. 奇点判断</h3>
+        <div class="one-stroke-animation">
+            <div class="graph">
+                <div class="vertex vertex-1"></div>
+                <div class="vertex vertex-2"></div>
+                <div class="vertex vertex-3"></div>
+                <div class="vertex vertex-4"></div>
+                <div class="edge edge-1"></div>
+                <div class="edge edge-2"></div>
+                <div class="edge edge-3"></div>
+                <div class="edge edge-4"></div>
+            </div>
+        </div>
+        
+        <div class="rule">
+            <strong>运算法则：</strong><br>
+            奇点数为0或2的图形可一笔画。
+        </div>
+        
+        <div class="example">
+            <div class="question">图形有2个奇点，可否一笔画？</div>
+            <div class="answer">可以。</div>
+            
+            <div class="question">图形有4个奇点，一笔画可行吗？</div>
+            <div class="answer">不可。</div>
+            
+            <div class="question">图形无奇点，是否一笔画？</div>
+            <div class="answer">可以。</div>
+        </div>
+        
+        <h3>2. 路径设计</h3>
+        <div class="rule">
+            <strong>运算法则：</strong><br>
+            选择奇点作为起点完成一笔画。
+        </div>
+        
+        <div class="example">
+            <div class="question">从A点开始画一笔画图形，A点为奇点。</div>
+            <div class="answer">可行。</div>
+            
+            <div class="question">从B点开始一笔画，B点为偶点。</div>
+            <div class="answer">不可行。</div>
+            
+            <div class="question">图形奇点为两个，起点选择哪一个？</div>
+            <div class="answer">任一奇点。</div>
+        </div>
+    </div>
+</body>
+</html>
