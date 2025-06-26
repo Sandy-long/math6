@@ -587,13 +587,13 @@
         
         <div class="example">
             <div class="question">爸爸比乐乐大32岁，5年后年龄差是多少？</div>
-            <div class="answer">32岁。</div>
+            <div class="answer">32岁</div>
             
             <div class="question">妈妈比姐姐大25岁，10年后年龄差？</div>
-            <div class="answer">25岁。</div>
+            <div class="answer">25岁</div>
             
             <div class="question">哥哥比弟弟大3岁，20年后年龄差？</div>
-            <div class="answer">3岁。</div>
+            <div class="answer">3岁</div>
         </div>
         
         <h3>2. 年龄和变化</h3>
@@ -610,13 +610,13 @@
         
         <div class="example">
             <div class="question">今年乐乐3岁，妈妈30岁，7年后年龄和多少？</div>
-            <div class="answer">47岁。</div>
+            <div class="answer">47岁</div>
             
             <div class="question">爸爸40岁，儿子10岁，5年后年龄和？</div>
-            <div class="answer">55岁。</div>
+            <div class="answer">55岁</div>
             
             <div class="question">妈妈35岁，女儿5岁，10年后年龄和？</div>
-            <div class="answer">50岁。</div>
+            <div class="answer">50岁</div>
         </div>
     </div>
     
@@ -638,13 +638,13 @@
         
         <div class="example">
             <div class="question">3家中餐厅和2家西餐厅，共几种选择？</div>
-            <div class="answer">5种。</div>
+            <div class="answer">5种</div>
             
             <div class="question">4种饮料和3种小吃，共几种搭配？</div>
-            <div class="answer">12种。</div>
+            <div class="answer">12种</div>
             
             <div class="question">5种帽子和2种鞋子，共几种搭配？</div>
-            <div class="answer">10种。</div>
+            <div class="answer">10种</div>
         </div>
         
         <h3>2. 路径计数</h3>
@@ -676,10 +676,10 @@
         
          <div class="example">
             <div class="question">从S到E有多少条不同的最短路径？</div>
-            <div class="answer">6条（需要向右2次，向下2次，共4步中选择2步向右）。</div>
+            <div class="answer">6条</div>
             
             <div class="question">3×3网格中从左上到右下的最短路径有多少条？</div>
-            <div class="answer">6条（需要向右2次，向下2次）。</div>
+            <div class="answer">6条</div>
             
             <div class="question">如果某些格子不能通过，如何计算路径数？</div>
             <div class="answer">排除经过障碍格子的路径，使用动态规划方法计算。</div>
@@ -707,14 +707,14 @@
         </div>
         
         <div class="example">
-            <div class="question">已知：2∆ + 〇 = 2☆ + 2囗囗，求∆。</div>
-            <div class="answer">根据题意计算。</div>
+            <div class="question">已知：2∆ + 〇 = 2☆ + 2囗囗，∆ = 3，☆ = 2，囗囗 = 1，求〇。</div>
+            <div class="answer">0</div>
             
-            <div class="question">天平一边为3☆ + 2囗囗，另一边为5∆，两边相等，求☆。</div>
-            <div class="answer">根据题意计算。</div>
+            <div class="question">天平一边为3☆ + 2囗囗，另一边为5∆，囗囗 = 2，∆ = 8，求☆。</div>
+            <div class="answer">12</div>
             
-            <div class="question">4囗囗 + 2〇 = 6∆，求囗囗。</div>
-            <div class="answer">根据题意计算。</div>
+            <div class="question">4囗囗 + 2〇 = 6∆，〇 = 2，∆ = 6，求囗囗。</div>
+            <div class="answer">8</div>
         </div>
         
         <h3>2. 变量求解</h3>
@@ -780,13 +780,13 @@
         
         <div class="example">
             <div class="question">"☆"代表2，表示周围有几颗雷？</div>
-            <div class="answer">2颗雷。</div>
+            <div class="answer">2颗雷</div>
             
             <div class="question">一个数字为3的格子，周围雷数是多少？</div>
-            <div class="answer">3颗雷。</div>
+            <div class="answer">3颗雷</div>
             
             <div class="question">某格子显示1，周围雷数为？</div>
-            <div class="answer">1颗雷。</div>
+            <div class="answer">1颗雷</div>
         </div>
         
         <h3>2. 排除法</h3>
@@ -797,13 +797,33 @@
         
         <div class="example">
             <div class="question">格子周围雷数为1，已知某格有雷，其他格是否有雷？</div>
-            <div class="answer">无。</div>
+            <div class="answer">无</div>
             
             <div class="question">周围雷数为0，周围所有格子有无雷？</div>
-            <div class="answer">无。</div>
+            <div class="answer">无</div>
             
-            <div class="question">数字为2的格子周围两个雷确定位置。</div>
-            <div class="answer">根据推理确定。</div>
+            <div class="question">在扫雷游戏中，如下图所示，中间格子显示数字 2，周围 8 个格子中有一些已知信息。请根据扫雷规则判断：标为 "?" 的格子是否是地雷？</div>
+ <div style="position: relative; width: 300px; height: 300px; background:  transparent; margin: 0 auto; font-family: Arial, sans-serif;">
+    
+    
+
+    <!-- 中间符号矩阵 -->
+    <div style="position: absolute; left: 100px; top: 100px; font-size: 40px;">🚩</div>
+    <div style="position: absolute; left: 150px; top: 100px; font-size: 40px;">×</div>
+    <div style="position: absolute; left: 200px; top: 100px; font-size: 40px;">?</div>
+
+    <div style="position: absolute; left: 100px; top: 150px; font-size: 40px;">×</div>
+    <div style="position: absolute; left: 150px; top: 150px; font-size: 40px;">2</div>
+    <div style="position: absolute; left: 200px; top: 150px; font-size: 40px;">×</div>
+
+    <div style="position: absolute; left: 100px; top: 200px; font-size: 40px;">?</div>
+    <div style="position: absolute; left: 150px; top: 200px; font-size: 40px;">×</div>
+    <div style="position: absolute; left: 200px; top: 200px; font-size: 40px;">🚩</div>
+
+    
+  
+  </div>
+            <div class="answer">都不是地雷</div>
         </div>
     </div>
     
