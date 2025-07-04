@@ -589,11 +589,11 @@
             <div class="question">爸爸比乐乐大32岁，5年后年龄差是多少？</div>
             <div class="answer">32岁</div>
             
-            <div class="question">妈妈比姐姐大25岁，10年后年龄差？</div>
-            <div class="answer">25岁</div>
+            <div class="question">妈妈比女儿大25岁。3年后，妈妈年龄将是女儿的4倍。求两人现在年龄。</div>
+            <div class="answer">女儿7岁，妈妈32岁</div>
             
-            <div class="question">哥哥比弟弟大3岁，20年后年龄差？</div>
-            <div class="answer">3岁</div>
+            <div class="question">甲对乙说："我像你这么大时，你才5岁。"乙说："我像你这么大时，你已经32岁。"求两人现在年龄。</div>
+            <div class="answer">甲23岁，乙14岁</div>
         </div>
         
         <h3>2. 年龄和变化</h3>
@@ -609,14 +609,14 @@
         </div>
         
         <div class="example">
-            <div class="question">今年乐乐3岁，妈妈30岁，7年后年龄和多少？</div>
-            <div class="answer">47岁</div>
+            <div class="question">当小明像小红现在这么大时，小红5岁；当小红像小明现在这么大时，小明20岁。求两人当前年龄。</div>
+            <div class="answer">小明15岁，小红10岁</div>
             
-            <div class="question">爸爸40岁，儿子10岁，5年后年龄和？</div>
-            <div class="answer">55岁</div>
+            <div class="question">三人年龄和现在90岁。当甲像乙现在这么大时，丙刚出生；当乙像丙现在这么大时，甲27岁。求当前年龄。</div>
+            <div class="answer">甲36岁，乙27岁，丙27岁</div>
             
-            <div class="question">妈妈35岁，女儿5岁，10年后年龄和？</div>
-            <div class="answer">50岁</div>
+            <div class="question">5年后，父子的年龄和将是50岁。已知爸爸比儿子大30岁，求两人当前年龄。</div>
+            <div class="answer">爸爸35岁，儿子5岁</div>
         </div>
     </div>
     
@@ -637,14 +637,14 @@
         </div>
         
         <div class="example">
-            <div class="question">3家中餐厅和2家西餐厅，共几种选择？</div>
-            <div class="answer">5种</div>
+            <div class="question">早餐有3种主食（包子、馒头、饼）和2种饮品（豆浆、牛奶），共有多少种搭配方式？</div>
+            <div class="answer">6种</div>
             
-            <div class="question">4种饮料和3种小吃，共几种搭配？</div>
-            <div class="answer">12种</div>
+            <div class="question">密码由4位组成，每位可选数字1-5，但相邻数字不能相同，有多少种密码？</div>
+            <div class="answer">320种</div>
             
-            <div class="question">5种帽子和2种鞋子，共几种搭配？</div>
-            <div class="answer">10种</div>
+            <div class="question">用1、2、3、4组成3位数，数字可重复，有多少种偶数？</div>
+            <div class="answer">32种</div>
         </div>
         
         <h3>2. 路径计数</h3>
@@ -675,14 +675,16 @@
         </div>
         
          <div class="example">
-            <div class="question">从S到E有多少条不同的最短路径？</div>
-            <div class="answer">6条</div>
+		 
+		 <div class="question">在2×1网格中，每次只能向右或向下，共有多少种走法？</div>
+            <div class="answer">2种</div>
+            <div class="question">在2×2网格中，从左上角到右下角，每次只能向右或向下移动，共有多少种走法？</div>
+            <div class="answer">6种</div>
             
-            <div class="question">3×3网格中从左上到右下的最短路径有多少条？</div>
-            <div class="answer">6条</div>
+            <div class="question">在3×3网格中，中心格有障碍物不能通过，求有效路径总数？</div>
+            <div class="answer">16种</div>
             
-            <div class="question">如果某些格子不能通过，如何计算路径数？</div>
-            <div class="answer">排除经过障碍格子的路径，使用动态规划方法计算。</div>
+            
         </div>
     </div>
     
@@ -710,11 +712,14 @@
             <div class="question">已知：2∆ + 〇 = 2☆ + 2囗囗，∆ = 3，☆ = 2，囗囗 = 1，求〇。</div>
             <div class="answer">0</div>
             
-            <div class="question">天平一边为3☆ + 2囗囗，另一边为5∆，囗囗 = 2，∆ = 8，求☆。</div>
+            <div class="question">天平一边为3☆ + 2囗囗，另一边为5∆，囗囗=2，∆=8，求☆。</div>
             <div class="answer">12</div>
             
-            <div class="question">4囗囗 + 2〇 = 6∆，〇 = 2，∆ = 6，求囗囗。</div>
-            <div class="answer">8</div>
+            <div class="question">3A + 4B = 2C + 5D，
+A + C = 3B，
+2D = B + 1，
+求A:B:C:D的比例</div>
+            <div class="answer">5:5:10:3</div>
         </div>
         
         <h3>2. 变量求解</h3>
@@ -724,205 +729,26 @@
         </div>
         
         <div class="example">
-            <div class="question">∆ + 囗囗 = 10，∆ - 囗囗 = 2，求∆和囗囗。</div>
-            <div class="answer">∆=6，囗囗=4。</div>
+            <div class="question">已知：
+① a + b = 20，
+② a - b = 4。
+求 a 和 b。</div>
+            <div class="answer">a = 12，b = 8</div>
             
-            <div class="question">x + y = 15，x - y = 5，求x和y。</div>
-            <div class="answer">x=10，y=5。</div>
+            <div class="question">已知：
+① 3∆ + 2囗囗 = 22，
+② ∆ - 囗囗 = 2。
+求 ∆ 和 囗囗。</div>
+            <div class="answer">∆ = 5.2，囗囗 = 3.2</div>
             
-            <div class="question">a + b = 20，a - b = 4，求a和b。</div>
-            <div class="answer">a=12，b=8。</div>
+            <div class="question">解方程组：
+① 2x + 3y = 19，
+② 4x - y = 11</div>
+            <div class="answer">x=4，y=3</div>
         </div>
     </div>
     
-    <div class="section">
-        <h2>扫雷游戏</h2>
-        
-        <h3>1. 地雷分布推理</h3>
-        <div class="minesweeper-animation">
-            <div class="grid">
-                <div class="cell"><div class="number">1</div><div class="mine"></div></div>
-                <div class="cell"><div class="number">2</div></div>
-                <div class="cell"><div class="number">1</div></div>
-                <div class="cell"><div class="number">0</div></div>
-                <div class="cell"><div class="number">1</div></div>
-                
-                <div class="cell"><div class="number">☆</div></div>
-                <div class="cell"><div class="number">2</div></div>
-                <div class="cell"><div class="number">1</div></div>
-                <div class="cell"><div class="number">1</div></div>
-                <div class="cell"><div class="number">1</div></div>
-                
-                <div class="cell"><div class="number">1</div></div>
-                <div class="cell"><div class="number">1</div></div>
-                <div class="cell"><div class="number">0</div></div>
-                <div class="cell"><div class="number">0</div></div>
-                <div class="cell"><div class="number">0</div></div>
-                
-                <div class="cell"><div class="number">1</div></div>
-                <div class="cell"><div class="number">☆</div></div>
-                <div class="cell"><div class="number">0</div></div>
-                <div class="cell"><div class="number">0</div></div>
-                <div class="cell"><div class="number">0</div></div>
-                
-                <div class="cell"><div class="number">1</div></div>
-                <div class="cell"><div class="number">1</div></div>
-                <div class="cell"><div class="number">0</div></div>
-                <div class="cell"><div class="number">0</div></div>
-                <div class="cell"><div class="number">0</div></div>
-            </div>
-        </div>
-        
-        <div class="rule">
-            <strong>运算法则：</strong><br>
-            数字表示周围雷的数量，用逻辑推断雷的位置。
-        </div>
-        
-        <div class="example">
-            <div class="question">"☆"代表2，表示周围有几颗雷？</div>
-            <div class="answer">2颗雷</div>
-            
-            <div class="question">一个数字为3的格子，周围雷数是多少？</div>
-            <div class="answer">3颗雷</div>
-            
-            <div class="question">某格子显示1，周围雷数为？</div>
-            <div class="answer">1颗雷</div>
-        </div>
-        
-        <h3>2. 排除法</h3>
-        <div class="rule">
-            <strong>运算法则：</strong><br>
-            根据数字和已知雷位置，排除无雷格子。
-        </div>
-        
-        <div class="example">
-            <div class="question">格子周围雷数为1，已知某格有雷，其他格是否有雷？</div>
-            <div class="answer">无</div>
-            
-            <div class="question">周围雷数为0，周围所有格子有无雷？</div>
-            <div class="answer">无</div>
-            
-            <div class="question">在扫雷游戏中，如下图所示，中间格子显示数字 2，周围 8 个格子中有一些已知信息。请根据扫雷规则判断：标为 "?" 的格子是否是地雷？</div>
- <div style="position: relative; width: 300px; height: 300px; background:  transparent; margin: 0 auto; font-family: Arial, sans-serif;">
     
-    
-
-    <!-- 中间符号矩阵 -->
-    <div style="position: absolute; left: 100px; top: 100px; font-size: 40px;">🚩</div>
-    <div style="position: absolute; left: 150px; top: 100px; font-size: 40px;">×</div>
-    <div style="position: absolute; left: 200px; top: 100px; font-size: 40px;">?</div>
-
-    <div style="position: absolute; left: 100px; top: 150px; font-size: 40px;">×</div>
-    <div style="position: absolute; left: 150px; top: 150px; font-size: 40px;">2</div>
-    <div style="position: absolute; left: 200px; top: 150px; font-size: 40px;">×</div>
-
-    <div style="position: absolute; left: 100px; top: 200px; font-size: 40px;">?</div>
-    <div style="position: absolute; left: 150px; top: 200px; font-size: 40px;">×</div>
-    <div style="position: absolute; left: 200px; top: 200px; font-size: 40px;">🚩</div>
-
-    
-  
-  </div>
-            <div class="answer">都不是地雷</div>
-        </div>
-    </div>
-    
-    <div class="section">
-        <h2>数列规律</h2>
-        
-        <h3>1. 常见数列</h3>
-        <div class="sequence-animation">
-            <div class="number-ball">1</div>
-            <div class="number-ball">3</div>
-            <div class="number-ball">5</div>
-            <div class="number-ball">7</div>
-            <div class="number-ball">9</div>
-            <div class="number-ball">11</div>
-        </div>
-        
-        <div class="rule">
-            <strong>运算法则：</strong><br>
-            识别奇数列、斐波那契数列等。
-        </div>
-        
-        <div class="example">
-            <div class="question">完成奇数列：1,3,5,7,9,11,( )。</div>
-            <div class="answer">13。</div>
-            
-            <div class="question">斐波那契数列前7项为1,1,2,3,5,8,( )。</div>
-            <div class="answer">13。</div>
-            
-            <div class="question">99, 88, 11, 77, 66, ( ), 55，填空数字？</div>
-            <div class="answer">11。</div>
-        </div>
-        
-        <h3>2. 复杂规律</h3>
-        <div class="rule">
-            <strong>运算法则：</strong><br>
-            识别隔项重复、递增递减规律。
-        </div>
-        
-        <div class="example">
-            <div class="question">数列：2,4,6,8,10,( )，填空？</div>
-            <div class="answer">12。</div>
-            
-            <div class="question">数列：5,10,15,20,( )，填空？</div>
-            <div class="answer">25。</div>
-            
-            <div class="question">数列：1,2,4,7,11,( )，填空？</div>
-            <div class="answer">16。</div>
-        </div>
-    </div>
-    
-    <div class="section">
-        <h2>一笔画</h2>
-        
-        <h3>1. 奇点判断</h3>
-        <div class="one-stroke-animation">
-            <div class="graph">
-                <div class="vertex vertex-1"></div>
-                <div class="vertex vertex-2"></div>
-                <div class="vertex vertex-3"></div>
-                <div class="vertex vertex-4"></div>
-                <div class="edge edge-1"></div>
-                <div class="edge edge-2"></div>
-                <div class="edge edge-3"></div>
-                <div class="edge edge-4"></div>
-            </div>
-        </div>
-        
-        <div class="rule">
-            <strong>运算法则：</strong><br>
-            奇点数为0或2的图形可一笔画。
-        </div>
-        
-        <div class="example">
-            <div class="question">图形有2个奇点，可否一笔画？</div>
-            <div class="answer">可以。</div>
-            
-            <div class="question">图形有4个奇点，一笔画可行吗？</div>
-            <div class="answer">不可。</div>
-            
-            <div class="question">图形无奇点，是否一笔画？</div>
-            <div class="answer">可以。</div>
-        </div>
-        
-        <h3>2. 路径设计</h3>
-        <div class="rule">
-            <strong>运算法则：</strong><br>
-            选择奇点作为起点完成一笔画。
-        </div>
-        
-        <div class="example">
-            <div class="question">从A点开始画一笔画图形，A点为奇点。</div>
-            <div class="answer">可行。</div>
-            
-            <div class="question">从B点开始一笔画，B点为偶点。</div>
-            <div class="answer">不可行。</div>
-            
-            <div class="question">图形奇点为两个，起点选择哪一个？</div>
-            <div class="answer">任一奇点。</div>
-        </div>
     </div>
 </body>
 </html>
