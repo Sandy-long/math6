@@ -41,18 +41,55 @@
             margin-bottom: 25px;
             box-shadow: 0 1px 3px rgba(0,0,0,0.1);
         }
+        /* 问题颜色设为红色 */
         .question {
             font-weight: bold;
             color: #e74c3c;
             margin-top: 12px;
             font-size: 0.95em;
         }
+        /* 答案区域样式 */
+        .answer-container {
+            background: linear-gradient(135deg, #f0fff4 0%, #e6fffa 100%);
+            border: 1px solid #d1fae5;
+            border-radius: 8px;
+            padding: 5px 15px;
+            margin: 10px 0;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .answer-container:hover {
+            background: linear-gradient(135deg, #dcffe4 0%, #c6f6d5 100%);
+            transform: translateX(5px);
+        }
+        .answer-prompt {
+            color: #10b981;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            padding: 5px 0;
+        }
+        .answer-prompt:before {
+            content: "✨";
+            margin-right: 10px;
+            font-size: 1.1em;
+        }
         .answer {
             color: #27ae60;
-            margin-bottom: 12px;
-            padding-left: 15px;
-            border-left: 2px solid #2ecc71;
-            font-size: 0.95em;
+            padding: 8px 0;
+            background-color: rgba(16, 185, 129, 0.1);
+            border-left: 3px solid #10b981;
+            border-radius: 0 8px 8px 0;
+            display: none;
+            font-weight: bold;
+            animation: fadeIn 0.5s ease;
+        }
+        .show-answer .answer {
+            display: block;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-5px); }
+            to { opacity: 1; transform: translateY(0); }
         }
         .rule {
             background-color: #f1f9fe;
@@ -212,263 +249,7 @@
             50% { transform: scale(1.2); }
         }
         
-        /* 天平等式动画 */
-        .balance-equation-animation {
-            width: 100%;
-            height: 150px;
-            position: relative;
-            margin: 15px auto;
-            background-color: #f5f5f5;
-            border-radius: 8px;
-            overflow: hidden;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-        
-        .balance-scale {
-            width: 150px;
-            height: 80px;
-            position: relative;
-        }
-        
-        .balance-stand {
-            width: 6px;
-            height: 60px;
-            background-color: #555;
-            position: absolute;
-            bottom: 0;
-            left: 50%;
-            transform: translateX(-50%);
-        }
-        
-        .balance-beam {
-            width: 120px;
-            height: 4px;
-            background-color: #777;
-            position: absolute;
-            bottom: 60px;
-            left: 50%;
-            transform: translateX(-50%);
-            animation: balance 3s infinite ease-in-out;
-        }
-        
-        .balance-pan {
-            width: 30px;
-            height: 8px;
-            background-color: #888;
-            position: absolute;
-            bottom: 55px;
-        }
-        
-        .left-pan { left: calc(50% - 60px); }
-        .right-pan { right: calc(50% - 60px); }
-        
-        .symbol {
-            position: absolute;
-            bottom: 30px;
-            font-weight: bold;
-            font-size: 20px;
-        }
-        
-        .left-symbol { left: calc(50% - 50px); }
-        .right-symbol { right: calc(50% - 50px); }
-        
-        @keyframes balance {
-            0%, 100% { transform: translateX(-50%) rotate(0deg); }
-            50% { transform: translateX(-50%) rotate(-2deg); }
-        }
-        
-        /* 扫雷游戏动画 */
-        .minesweeper-animation {
-            width: 100%;
-            height: 150px;
-            position: relative;
-            margin: 15px auto;
-            background-color: #f5f5f5;
-            border-radius: 8px;
-            overflow: hidden;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-        
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(5, 30px);
-            grid-template-rows: repeat(5, 30px);
-            gap: 2px;
-        }
-        
-        .cell {
-            width: 30px;
-            height: 30px;
-            background-color: #ddd;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-weight: bold;
-            position: relative;
-        }
-        
-        .number {
-            animation: appear 3s infinite;
-        }
-        
-        .mine {
-            position: absolute;
-            width: 20px;
-            height: 20px;
-            background-color: #e74c3c;
-            border-radius: 50%;
-            opacity: 0;
-            animation: mineAppear 3s infinite;
-        }
-        
-        @keyframes appear {
-            0%, 60% { opacity: 0; transform: scale(0.5); }
-            100% { opacity: 1; transform: scale(1); }
-        }
-        
-        @keyframes mineAppear {
-            0%, 70% { opacity: 0; transform: scale(0.3); }
-            100% { opacity: 1; transform: scale(1); }
-        }
-        
-        /* 数列规律动画 */
-        .sequence-animation {
-            width: 100%;
-            height: 150px;
-            position: relative;
-            margin: 15px auto;
-            background-color: #f5f5f5;
-            border-radius: 8px;
-            overflow: hidden;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-        
-        .number-ball {
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            background-color: #3498db;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-weight: bold;
-            color: white;
-            margin: 0 5px;
-            animation: sequence 4s infinite;
-        }
-        
-        .number-ball:nth-child(1) { animation-delay: 0s; }
-        .number-ball:nth-child(2) { animation-delay: 0.2s; }
-        .number-ball:nth-child(3) { animation-delay: 0.4s; }
-        .number-ball:nth-child(4) { animation-delay: 0.6s; }
-        .number-ball:nth-child(5) { animation-delay: 0.8s; }
-        .number-ball:nth-child(6) { animation-delay: 1s; }
-        
-        @keyframes sequence {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-15px); }
-        }
-        
-        /* 一笔画动画 */
-        .one-stroke-animation {
-            width: 100%;
-            height: 150px;
-            position: relative;
-            margin: 15px auto;
-            background-color: #f5f5f5;
-            border-radius: 8px;
-            overflow: hidden;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-        
-        .graph {
-            position: relative;
-            width: 120px;
-            height: 120px;
-        }
-        
-        .vertex {
-            width: 20px;
-            height: 20px;
-            border-radius: 50%;
-            background-color: #e74c3c;
-            position: absolute;
-        }
-        
-        .vertex-1 { top: 0; left: 50%; transform: translateX(-50%); }
-        .vertex-2 { top: 50%; left: 0; transform: translateY(-50%); }
-        .vertex-3 { top: 50%; right: 0; transform: translateY(-50%); }
-        .vertex-4 { bottom: 0; left: 50%; transform: translateX(-50%); }
-        
-        .edge {
-            position: absolute;
-            background-color: #3498db;
-        }
-        
-        .edge-1 {
-            width: 2px;
-            height: 50px;
-            top: 10px;
-            left: 50%;
-            transform: translateX(-50%);
-            animation: draw1 3s infinite;
-        }
-        
-        .edge-2 {
-            width: 50px;
-            height: 2px;
-            top: 50%;
-            left: 10px;
-            transform: translateY(-50%);
-            animation: draw2 3s infinite;
-        }
-        
-        .edge-3 {
-            width: 50px;
-            height: 2px;
-            top: 50%;
-            right: 10px;
-            transform: translateY(-50%);
-            animation: draw3 3s infinite;
-        }
-        
-        .edge-4 {
-            width: 2px;
-            height: 50px;
-            bottom: 10px;
-            left: 50%;
-            transform: translateX(-50%);
-            animation: draw4 3s infinite;
-        }
-        
-        @keyframes draw1 {
-            0% { height: 0; top: 20px; }
-            100% { height: 50px; top: 10px; }
-        }
-        
-        @keyframes draw2 {
-            0%, 25% { width: 0; left: 20px; }
-            100% { width: 50px; left: 10px; }
-        }
-        
-        @keyframes draw3 {
-            0%, 50% { width: 0; right: 20px; }
-            100% { width: 50px; right: 10px; }
-        }
-        
-        @keyframes draw4 {
-            0%, 75% { height: 0; bottom: 20px; }
-            100% { height: 50px; bottom: 10px; }
-        }
-		/* 路径计数动画 */
+        /* 路径计数动画 */
         .path-counting-animation {
             width: 100%;
             height: 200px;
@@ -482,7 +263,7 @@
             align-items: center;
         }
         
-        .grid {
+        .grid-path {
             display: grid;
             grid-template-columns: repeat(3, 40px);
             grid-template-rows: repeat(3, 40px);
@@ -562,6 +343,72 @@
             100% { height: 45px; }
         }
         
+        /* 天平等式动画 */
+        .balance-equation-animation {
+            width: 100%;
+            height: 150px;
+            position: relative;
+            margin: 15px auto;
+            background-color: #f5f5f5;
+            border-radius: 8px;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .balance-scale {
+            width: 150px;
+            height: 80px;
+            position: relative;
+        }
+        
+        .balance-stand {
+            width: 6px;
+            height: 60px;
+            background-color: #555;
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        .balance-beam {
+            width: 120px;
+            height: 4px;
+            background-color: #777;
+            position: absolute;
+            bottom: 60px;
+            left: 50%;
+            transform: translateX(-50%);
+            animation: balance 3s infinite ease-in-out;
+        }
+        
+        .balance-pan {
+            width: 30px;
+            height: 8px;
+            background-color: #888;
+            position: absolute;
+            bottom: 55px;
+        }
+        
+        .left-pan { left: calc(50% - 60px); }
+        .right-pan { right: calc(50% - 60px); }
+        
+        .symbol {
+            position: absolute;
+            bottom: 30px;
+            font-weight: bold;
+            font-size: 20px;
+        }
+        
+        .left-symbol { left: calc(50% - 50px); }
+        .right-symbol { right: calc(50% - 50px); }
+        
+        @keyframes balance {
+            0%, 100% { transform: translateX(-50%) rotate(0deg); }
+            50% { transform: translateX(-50%) rotate(-2deg); }
+        }
     </style>
 </head>
 <body>
@@ -587,13 +434,22 @@
         
         <div class="example">
             <div class="question">爸爸比乐乐大32岁，5年后年龄差是多少？</div>
-            <div class="answer">32岁</div>
+            <div class="answer-container">
+                <div class="answer-prompt">点击显示答案</div>
+                <div class="answer">32岁</div>
+            </div>
             
             <div class="question">妈妈比女儿大25岁。3年后，妈妈年龄将是女儿的4倍。求两人现在年龄。</div>
-            <div class="answer">女儿7岁，妈妈32岁</div>
+            <div class="answer-container">
+                <div class="answer-prompt">点击显示答案</div>
+                <div class="answer">女儿7岁，妈妈32岁</div>
+            </div>
             
             <div class="question">甲对乙说："我像你这么大时，你才5岁。"乙说："我像你这么大时，你已经32岁。"求两人现在年龄。</div>
-            <div class="answer">甲23岁，乙14岁</div>
+            <div class="answer-container">
+                <div class="answer-prompt">点击显示答案</div>
+                <div class="answer">甲23岁，乙14岁</div>
+            </div>
         </div>
         
         <h3>2. 年龄和变化</h3>
@@ -610,13 +466,22 @@
         
         <div class="example">
             <div class="question">当小明像小红现在这么大时，小红5岁；当小红像小明现在这么大时，小明20岁。求两人当前年龄。</div>
-            <div class="answer">小明15岁，小红10岁</div>
+            <div class="answer-container">
+                <div class="answer-prompt">点击显示答案</div>
+                <div class="answer">小明15岁，小红10岁</div>
+            </div>
             
             <div class="question">三人年龄和现在90岁。当甲像乙现在这么大时，丙刚出生；当乙像丙现在这么大时，甲27岁。求当前年龄。</div>
-            <div class="answer">甲36岁，乙27岁，丙27岁</div>
+            <div class="answer-container">
+                <div class="answer-prompt">点击显示答案</div>
+                <div class="answer">甲36岁，乙27岁，丙27岁</div>
+            </div>
             
             <div class="question">5年后，父子的年龄和将是50岁。已知爸爸比儿子大30岁，求两人当前年龄。</div>
-            <div class="answer">爸爸35岁，儿子5岁</div>
+            <div class="answer-container">
+                <div class="answer-prompt">点击显示答案</div>
+                <div class="answer">爸爸35岁，儿子5岁</div>
+            </div>
         </div>
     </div>
     
@@ -638,18 +503,27 @@
         
         <div class="example">
             <div class="question">早餐有3种主食（包子、馒头、饼）和2种饮品（豆浆、牛奶），共有多少种搭配方式？</div>
-            <div class="answer">6种</div>
+            <div class="answer-container">
+                <div class="answer-prompt">点击显示答案</div>
+                <div class="answer">6种</div>
+            </div>
             
             <div class="question">密码由4位组成，每位可选数字1-5，但相邻数字不能相同，有多少种密码？</div>
-            <div class="answer">320种</div>
+            <div class="answer-container">
+                <div class="answer-prompt">点击显示答案</div>
+                <div class="answer">320种</div>
+            </div>
             
             <div class="question">用1、2、3、4组成3位数，数字可重复，有多少种偶数？</div>
-            <div class="answer">32种</div>
+            <div class="answer-container">
+                <div class="answer-prompt">点击显示答案</div>
+                <div class="answer">32种</div>
+            </div>
         </div>
         
         <h3>2. 路径计数</h3>
-		<div class="path-counting-animation">
-            <div class="grid">
+        <div class="path-counting-animation">
+            <div class="grid-path">
                 <div class="cell start">S</div>
                 <div class="cell"></div>
                 <div class="cell"></div>
@@ -674,17 +548,24 @@
             3. 使用排列组合计算路径总数
         </div>
         
-         <div class="example">
-		 
-		 <div class="question">在2×1网格中，每次只能向右或向下，共有多少种走法？</div>
-            <div class="answer">2种</div>
+        <div class="example">
+            <div class="question">在2×1网格中，每次只能向右或向下，共有多少种走法？</div>
+            <div class="answer-container">
+                <div class="answer-prompt">点击显示答案</div>
+                <div class="answer">2种</div>
+            </div>
+            
             <div class="question">在2×2网格中，从左上角到右下角，每次只能向右或向下移动，共有多少种走法？</div>
-            <div class="answer">6种</div>
+            <div class="answer-container">
+                <div class="answer-prompt">点击显示答案</div>
+                <div class="answer">6种</div>
+            </div>
             
             <div class="question">在3×3网格中，中心格有障碍物不能通过，求有效路径总数？</div>
-            <div class="answer">16种</div>
-            
-            
+            <div class="answer-container">
+                <div class="answer-prompt">点击显示答案</div>
+                <div class="answer">16种</div>
+            </div>
         </div>
     </div>
     
@@ -710,16 +591,25 @@
         
         <div class="example">
             <div class="question">已知：2∆ + 〇 = 2☆ + 2囗囗，∆ = 3，☆ = 2，囗囗 = 1，求〇。</div>
-            <div class="answer">0</div>
+            <div class="answer-container">
+                <div class="answer-prompt">点击显示答案</div>
+                <div class="answer">0</div>
+            </div>
             
             <div class="question">天平一边为3☆ + 2囗囗，另一边为5∆，囗囗=2，∆=8，求☆。</div>
-            <div class="answer">12</div>
+            <div class="answer-container">
+                <div class="answer-prompt">点击显示答案</div>
+                <div class="answer">12</div>
+            </div>
             
             <div class="question">3A + 4B = 2C + 5D，
 A + C = 3B，
 2D = B + 1，
 求A:B:C:D的比例</div>
-            <div class="answer">5:5:10:3</div>
+            <div class="answer-container">
+                <div class="answer-prompt">点击显示答案</div>
+                <div class="answer">5:5:10:3</div>
+            </div>
         </div>
         
         <h3>2. 变量求解</h3>
@@ -733,22 +623,40 @@ A + C = 3B，
 ① a + b = 20，
 ② a - b = 4。
 求 a 和 b。</div>
-            <div class="answer">a = 12，b = 8</div>
+            <div class="answer-container">
+                <div class="answer-prompt">点击显示答案</div>
+                <div class="answer">a = 12，b = 8</div>
+            </div>
             
             <div class="question">已知：
 ① 3∆ + 2囗囗 = 22，
 ② ∆ - 囗囗 = 2。
 求 ∆ 和 囗囗。</div>
-            <div class="answer">∆ = 5.2，囗囗 = 3.2</div>
+            <div class="answer-container">
+                <div class="answer-prompt">点击显示答案</div>
+                <div class="answer">∆ = 5.2，囗囗 = 3.2</div>
+            </div>
             
             <div class="question">解方程组：
 ① 2x + 3y = 19，
 ② 4x - y = 11</div>
-            <div class="answer">x=4，y=3</div>
+            <div class="answer-container">
+                <div class="answer-prompt">点击显示答案</div>
+                <div class="answer">x=4，y=3</div>
+            </div>
         </div>
     </div>
-    
-    
-    </div>
+
+    <script>
+        // 添加点击显示答案功能
+        document.addEventListener('DOMContentLoaded', function() {
+            const containers = document.querySelectorAll('.answer-container');
+            containers.forEach(container => {
+                container.addEventListener('click', function() {
+                    this.classList.toggle('show-answer');
+                });
+            });
+        });
+    </script>
 </body>
 </html>
